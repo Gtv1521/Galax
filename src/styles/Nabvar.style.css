@@ -1,0 +1,52 @@
+.Navbar {
+    background: rgb(25, 23, 24);
+    width: auto;
+    height: 60px;
+    display: flex;
+    margin-top: 0%;
+}
+
+.Nav {
+    width: 100%;
+    margin: auto;
+    max-width: 995px;
+    display: flex;
+    line-height: 60px;
+    list-style: none;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.Items {
+    display: flex;
+    list-style: none;
+    padding: 0 10px;
+    font-weight: bold;
+    width: auto;
+}
+
+.Logo {
+    color: aqua;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 110px;
+    line-height: 60px;
+}
+
+#Item {
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+.icon_nav {
+    padding-right: 2px;
+}
+
+.active {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.blue {
+    color: rgb(130, 161, 161);
+}
