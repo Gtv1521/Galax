@@ -1,0 +1,87 @@
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.description {
+    width: 50%;
+}
+
+.Login {
+    width: 50%;
+}
+
+.form {
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 50px 30px;
+    text-align: center;
+    color: aqua;
+}
+
+.titleForm {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 1px solid white;
+    width: 80%;
+    margin: auto;
+    padding: 10px 0;
+}
+
+.formGroup {
+    margin: 20px auto 0 auto;
+    display: block;
+    width: 90%;
+}
+
+.inputGroup {
+    margin: auto;
+    width: 80%;
+    padding-top: 10px;
+}
+
+.label {
+    width: 100%;
+    display: block;
+    text-align: start;
+    font-weight: bold;
+    color: white;
+}
+
+.input {
+    width: 100%;
+    display: block;
+    text-align: start;
+    margin-top: 4px;
+    height: 25px;
+    border: 1px solid rgba(72, 55, 200, .3);
+    border-radius: 4px;
+    box-shadow: 2px solid red;
+    padding-left: 4px;
+}
+
+.btnSubmit {
+    margin: 20px;
+    padding: 5px 20px;
+}
+
+.alert {
+    display: block;
+    color: rgb(187, 224, 127);
+    font-weight: bold;
+    font-size: 14px;
+    text-align: start;
+    margin-left: 10%;
+}
+
+.icoForm {
+    color: rgba(14, 13, 20, 0.77);
+    position: relative;
+    top: -22px;
+    left: 37%;
+}
+
+.icoForm:hover {
+    color: black;
+}

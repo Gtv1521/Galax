@@ -1,3 +1,3 @@
 window.env = {
-  "URL": "2000"
+  "URL": "http://localhost:5000"
 };

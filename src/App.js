@@ -5,7 +5,8 @@ import Inicio from './routers/Inicio'
 import NotFound from './routers/NotFound'
 import Nabvar from './components/Nabvar'
 import Exit from './routers/Exit'
-import Entrada from './routers/Entrada'
+import SigIn from './routers/SigIn'
+import LogIn from './routers/LogIn'
 
 const App = () => {
     return (
@@ -13,12 +14,12 @@ const App = () => {
         <BrowserRouter>
         <Nabvar />
             <Routes>
-                <Route path='/' exec element={<Inicio/>}>
-                    <Route path='/inicio' element={<Entrada />} /> {/** Ruta de acceso al inicio de la app */}
-                    <Route path='/perfil' element={<Perfil />} /> {/** Ruta de acceso al inicio de la app */}
-                    <Route path='/exit' element={<Exit />} /> {/** Ruta de salida de session */}
-                    <Route path='*' element={<NotFound />} /> {/** ruta de manejo de error */}
-                </Route> {/** Ruta de acceso al index */} 
+                <Route path='/' index element={<Inicio/>} /> {/** Ruta de acceso al index */} 
+                <Route path='/sigin' element={<SigIn/>} /> {/** Ruta de acceso al index */} 
+                <Route path='/login' element={<LogIn/>} /> {/** Ruta de acceso al index */} 
+                <Route path='/perfil' element={<Perfil />} /> {/** Ruta de acceso al inicio de la app */}
+                <Route path='/exit' element={<Exit />} /> {/** Ruta de salida de session */}
+                <Route path='*' element={<NotFound />} /> {/** ruta de manejo de error */}
             </Routes>
         </BrowserRouter>
     )

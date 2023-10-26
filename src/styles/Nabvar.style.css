@@ -35,7 +35,8 @@
 
 #Item {
     text-decoration: none;
-    padding: 0 15px;
+    padding: 5px 15px;
+    margin: 0 2px;
 }
 
 .icon_nav {
@@ -45,6 +46,8 @@
 .active {
     color: rgb(255, 255, 255);
     font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .blue {

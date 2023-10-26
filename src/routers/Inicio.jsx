@@ -1,6 +1,13 @@
 const Inicio = () => {
   return (
-    <div>Inicio</div>
+    <div className={'content'}>
+      <div className={'description'}>
+
+      </div>
+      <div className={'Login'}>
+
+      </div>
+    </div>
   )
 }
 
