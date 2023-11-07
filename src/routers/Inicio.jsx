@@ -5,7 +5,7 @@ const Inicio = () => {
 
       </div>
       <div className={'Login'}>
-
+        Wellcome
       </div>
     </div>
   )

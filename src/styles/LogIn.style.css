@@ -85,3 +85,8 @@
 .icoForm:hover {
     color: black;
 }
+
+.error{
+    margin-bottom: 20px;
+    color: tomato;
+}

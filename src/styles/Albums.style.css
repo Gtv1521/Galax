@@ -1,0 +1,80 @@
+.caja_albunes {
+    margin: 3px auto 0 auto;
+    text-align: center;
+    height: 482px;
+    overflow-y: scroll;
+}
+
+.caja_albunes::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.caja_albunes::-webkit-scrollbar:vertical {
+    width: 8px;
+}
+.caja_albunes::-webkit-scrollbar-button:increment,
+.caja_albunes::-webkit-scrollbar-button {
+    display: none;
+}
+.caja_albunes::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+.caja_albunes::-webkit-scrollbar-thumb {
+    background-color: #562e2e;
+    border-radius: 20px;
+    border: 2px solid #5680aa;
+}
+
+.caja_albunes::-webkit-scrollbar-track {
+    border-radius: 8px;
+}
+
+.caja_albunes_reducida {
+    margin: auto;
+    text-align: center;
+    height: 460px;
+    overflow-y: scroll;
+}
+
+.boton_album {
+    width: 95%;
+    border-radius: 10px;
+    margin: 4px auto;
+    border: 4px solid rgba(7, 7, 8, 0.935);
+}
+
+.boton_album:hover {
+    border: 4px solid rgba(67, 67, 192, 0.935);
+}
+
+.caja_album {
+    width: 100%;
+    text-align: start;
+}
+
+
+.select_label {
+    width: 81%;
+    display: block;
+    text-align: start;
+    margin: auto;
+    font-weight: bold;
+
+}
+
+.select_album {
+    width: 83%;
+    display: block;
+    text-align: start;
+    margin-top: 4px;
+    margin: auto;
+    height: 25px;
+    border: 1px solid rgba(72, 55, 200, .3);
+    border-radius: 4px;
+    box-shadow: 2px solid red;
+    padding-left: 4px;
+}
+
+.nombre__album {
+    font-weight: bold;
+    font-size: 17px;
+}

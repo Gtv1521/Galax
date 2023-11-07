@@ -1,0 +1,16 @@
+.mensajeCierre {
+    color: rgba(246, 248, 249, 0.812);
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.spinner{
+    animation: spinners 2s linear infinite;
+}
+
+@keyframes spinners {
+    to{
+        transform: rotate(360deg);
+    }
+}

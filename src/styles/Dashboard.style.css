@@ -1,0 +1,231 @@
+.contenedor {
+    display: flex;
+    width: 100%;
+    margin: 8px auto 8px auto;
+    color: rgb(249, 253, 253);
+    font-size: 20px bold;
+}
+
+.albums {
+    width: 15%;
+    border-right: 2px solid aqua;
+    display: block;
+}
+
+.esconder {
+    position: absolute;
+    left: -8%;
+    transition: width 2s;
+}
+
+.marcador {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding-right: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contenedor_titulo {
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    margin: auto;
+    height: 35px;
+    line-height: 35px;
+    align-items: center;
+
+}
+
+.icono {
+    font-size: 25px;
+    color: rgb(165, 159, 159);
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-left: 10 px;
+    font-weight: bold;
+    background-color: black;
+}
+
+.icono:hover,
+.icono_add:hover,
+.add:hover,
+.close:hover,
+.cerrar:hover {
+    color: rgb(255, 255, 255);
+}
+
+.titulo {
+    font-size: x-large;
+    width: 95%;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+.icono_add {
+    font-size: 25px;
+    color: rgb(165, 159, 159);
+    border: 2px solid black;
+    margin-left: 10 px;
+    font-weight: bold;
+    background-color: black;
+    margin-right: 2px;
+}
+
+.contenedor__imagenes {
+    width: 85%;
+    height: 520px;
+    overflow-y: auto;
+    border-left: 2px solid aqua;
+    display: block;
+    z-index: 2;
+}
+
+/* scroll cambia de stilo */
+.contenedor__imagenes::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.contenedor__imagenes::-webkit-scrollbar:vertical {
+    width: 8px;
+}
+
+.contenedor__imagenes::-webkit-scrollbar-button:increment,
+.contenedor__imagenes::-webkit-scrollbar-button {
+    display: none;
+}
+
+.contenedor__imagenes::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.contenedor__imagenes::-webkit-scrollbar-thumb {
+    background-color: #562e2e;
+    border-radius: 20px;
+    border: 2px solid #5680aa;
+}
+
+.contenedor__imagenes::-webkit-scrollbar-track {
+    border-radius: 8px;
+}
+
+/*  */
+.ampliar {
+    width: 100%;
+    height: 520px;
+    justify-items: center;
+}
+
+.imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    width: 100%;
+    margin: auto;
+    justify-items: center;
+}
+
+.ampliado {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    width: 100%;
+    justify-items: center;
+}
+
+.image {
+    width: 160px;
+    height: 90px;
+    margin: 3px 0;
+    border: 3px solid rgb(255, 255, 255)
+}
+
+.image:hover {
+    border: 3px solid rgb(100, 98, 233);
+}
+
+.mostrar_add_imagen {
+    position: absolute;
+    bottom: 10%;
+    right: 8px;
+    border-radius: 10px;
+    border: 2px solid white;
+    color: rgb(249, 253, 253);
+    background-color: rgba(0, 0, 0, 0.876);
+}
+
+.esconder_add_imagen {
+    position: absolute;
+    bottom: 10%;
+    left: -30%;
+}
+
+.cerrar {
+    color: rgba(255, 252, 253, 0.8);
+    z-index: 2;
+    font-size: 25px;
+}
+
+.formulario {
+    display: block;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    z-index: auto;
+}
+
+.formulario__container {
+    width: 95%;
+    margin: auto;
+    z-index: 2;
+    text-align: center;
+}
+
+.boton_foto {
+    text-align: center;
+}
+
+.footer {
+    height: 30px;
+    color: aqua;
+    font-weight: bold;
+    font-size: 20px;
+    background: rgb(25, 23, 24);
+}
+
+#form {
+    display: flex;
+    height: 25px;
+}
+
+.icono_album {
+    font-size: 15px;
+    line-height: 25px;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgb(165, 159, 159);
+}
+
+.input_form {
+    width: 95%;
+    border-radius: 5px;
+    padding-left: 3px;
+}
+
+.add {
+    font-size: 25px;
+    border: 2px solid black;
+    border-radius: 20px;
+    color: rgb(165, 159, 159);
+    background-color: black;
+    transform: rotate(90deg);
+}
+
+.close {
+    font-size: 25px;
+    border: 2px solid black;
+    color: rgb(165, 159, 159);
+    border-radius: 20px;
+    background-color: black;
+    transform: rotate(45deg);
+}

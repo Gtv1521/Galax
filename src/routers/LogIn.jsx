@@ -6,9 +6,11 @@ import Input from '../components/Input'
 import '../styles/LogIn.style.css'
 import { useForm } from "react-hook-form"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBedPulse, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import env from 'react-dotenv'
+import Cookies from 'universal-cookie'
+import { ImSpinner9 } from 'react-icons/im'
 
 const LogIn = () => {
 
@@ -16,7 +18,8 @@ const LogIn = () => {
   const [confirma, setConfirma] = useState(true)
   const [ver, setVer] = useState(true)
   const [correo, setCorreo] = useState(true)
-  const [datos, setDatos] = useState([''])
+  const [user, setUser] = useState([''])
+  const [message, setMessage] = useState()
   const { register, watch, handleSubmit, formState: { errors } } = useForm()
 
   const result = (value) => {
@@ -34,7 +37,7 @@ const LogIn = () => {
   }
 
   const resultCorreo = (value) => {
-    return axios.get(`${env.URL}/email/${value}`)
+    axios.get(`${env.URL}/email/${value}`)
       .then((response) => {
         if (response.data === "") {
           setCorreo(true)
@@ -46,26 +49,35 @@ const LogIn = () => {
         console.log(error);
       });
   }
+  if (user?.token) {
+    console.log(user.token)
+    const cookie = new Cookies();
+    cookie.set('id', user.id, { path: '/' });
+    cookie.set('token', user.token, { path: '/' });
+    window.location = '/dashboard';
+  }
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data.nombre, data.email, data.userName, data.password)
-    axios({
-      method: 'post',
-      url: `${env.URL}/login`,
-      body: {
-        nombre: data.nombre,
-        email: data.email,
-        username: data.username,
-        password: data.password
-      }
+    setMessage(true);
+    setTimeout(() => {
+      setMessage(false)
+    }, 2000)
+
+    axios.post(`${env.URL}/login`, {
+      nombre: data.nombre,
+      username: data.userName,
+      password: data.password,
+      email: data.email,
     })
-    .then((response) => {
-      console.log(response)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+      .then(function (response) {
+        setUser(response.data);
+      })
+      .catch(function (error) {
+        setMessage(error);
+      });
   })
+
+  console.log(message)
   return (
     <div className={'content'}>
       <div className={'description'}>
@@ -186,6 +198,7 @@ const LogIn = () => {
 
             </div>
             <input type='submit' className={'btnSubmit'} value='Enviar' name='btnEnviar' />
+            {message && < ImSpinner9 className={'spinner'} /> }
           </form>
         </div>
       </div>

@@ -6,22 +6,24 @@ import { faArrowRightFromBracket, faHouse, faUserPlus } from '@fortawesome/free-
 
 const NavUser = () => {
     return (
-        <div>
-            <ul className={'Items'}>
-                <li>
-                    <NavLink className={(status) => status.isActive ? 'active' : 'blue'} id="Item" to='/entrada'>
-                        <span className={'icon_nav'}><FontAwesomeIcon icon={faHouse} /></span> Home</NavLink>
-                </li>
-                <li>
-                    <NavLink className={(status) => status.isActive ? 'active' : 'blue'} id="Item" to='/perfil'>
-                        <span className={'icon_nav'}><FontAwesomeIcon icon={faUserPlus} /></span> Perfil</NavLink>
-                </li>
-                <li>
-                    <NavLink className={(status) => status.isActive ? 'active' : 'blue'} id="Item" to='/'>
-                        <span className={'icon_nav'}><FontAwesomeIcon icon={faArrowRightFromBracket} /></span> Log Out</NavLink>
-                </li>
-            </ul>
-        </div>
+        <>
+            <div>
+                <ul className={'Items'}>
+                    <li>
+                        <NavLink className={(status) => status.isActive ? 'active' : 'blue'} id="Item" to='/dashboard'>
+                            <span className={'icon_nav'}><FontAwesomeIcon icon={faHouse} /></span> Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={(status) => status.isActive ? 'active' : 'blue'} id="Item" to='/perfil'>
+                            <span className={'icon_nav'}><FontAwesomeIcon icon={faUserPlus} /></span> Perfil</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={(status) => status.isActive ? 'active' : 'blue'} id="Item" to='/logout'>
+                            <span className={'icon_nav'}><FontAwesomeIcon icon={faArrowRightFromBracket} /></span> Log Out</NavLink>
+                    </li>
+                </ul>
+            </div>
+        </>
     )
 }
 
