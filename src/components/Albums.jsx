@@ -2,14 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import FormAlbums from './FormAlbums'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import '../styles/Dashboard.style.css'
+import '../styles/index.scss'
 import ContenedorAlbums from './ContenedorAlbums'
 import Cookies from 'universal-cookie'
 import { useViewAlbum } from '../hooks/gets.js'
 import { ImSpinner9 } from 'react-icons/im'
 
 
-const Albums = (images) => {
+const Albums = ({ setAlbumActivo }) => {
 
     const cookie = new Cookies()
 
@@ -17,7 +17,7 @@ const Albums = (images) => {
 
     let idUsuario = cookie.get('id')
 
-    const { data: datos, isError, isPending } = useViewAlbum(idUsuario)
+    const result = useViewAlbum(idUsuario)
     return (
         <>
             <div className={'albums'}>
@@ -28,8 +28,12 @@ const Albums = (images) => {
                 {album && <FormAlbums />}
 
                 {
-                    isPending ? <ImSpinner9 className={'spinner'} /> : <div>
-                        {isError ? 'error' : <ContenedorAlbums estado={album} albums={datos} images={images} />}
+                    result.isPending ? <ImSpinner9 className={'spinner'} /> : <div>
+                        {result.isError ?
+                            'Algo fallo'
+                            :
+                            <ContenedorAlbums setAlbumActivo={setAlbumActivo} estado={album} albums={result.data} />
+                        }
                     </div>
                 }
 

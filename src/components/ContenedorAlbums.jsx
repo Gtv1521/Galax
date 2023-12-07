@@ -1,24 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/Albums.style.css'
+import Config from './Config'
 
-const ContenedorAlbums = (data) => {
-  const albums  = data.albums
-  const imagenes  = data.images
+const ContenedorAlbums = ({ albums, estado, setAlbumActivo }) => {
 
-  function PrimeraLetra(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-  
-  
+  const [estadoBtn, setEstadoBtn] = useState(0)
+
   return (
     <>
-      <div className={data.estado ? 'caja_albunes_reducida' : 'caja_albunes'}>
-        {albums.data.map(album =>
-          <button className={'boton_album'} key={album.id_album}>
-
-            <p className={'nombre__album'}>{PrimeraLetra(album.nombre_album)}</p>
-          </button>
-        )}
+      <div className={`caja_albunes ${estado ? '' : 'activada'}`}>
+        {
+          albums?.data.message ? <div className={'message'}>{albums.data.message}</div>
+            :
+            albums?.data.map((album , index) =>
+             <Config setAlbumActivo={setAlbumActivo} key={album.id_album} album={album} setEstadoBtn={setEstadoBtn} estadoBtn={estadoBtn} index={index}/>
+            )
+        }
       </div>
     </>
   )

@@ -1,5 +1,9 @@
+
+
 const Inicio = () => {
+
   return (
+
     <div className={'content'}>
       <div className={'description'}>
 
@@ -7,6 +11,7 @@ const Inicio = () => {
       <div className={'Login'}>
         Wellcome
       </div>
+
     </div>
   )
 }

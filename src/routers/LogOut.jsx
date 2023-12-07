@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Cookie from "universal-cookie"
-import '../styles/Cierre.style.css'
+import '../styles/index.scss'
 import { ImSpinner9 } from 'react-icons/im'
 
 

@@ -1,0 +1,11 @@
+.imgAlbum {
+    width: 60px;
+    height: 40px;
+    margin: 1px 3px;
+}
+
+.titulos {
+    color: rgb(77, 100, 141);
+    font-weight: bold;
+    font-size: 20px;
+}

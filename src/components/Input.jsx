@@ -4,7 +4,7 @@ import React from 'react'
 // components
 import '../styles/LogIn.style.css'
 
-const Input = ({ type, name, nombre, dato }) => {
+const Input = ({ type, name, nombre, dato, setImage }) => {
   return (
     <>
       <div className={'inputGroup'}>

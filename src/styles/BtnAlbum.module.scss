@@ -1,0 +1,18 @@
+@use 'variables';
+
+.boton_album {
+    width: 98%;
+    border-radius: 10px;
+    margin: 4px auto;
+    border: 4px solid rgba(7, 7, 8, 0.935);
+
+    & .config {
+        margin-top: 4px;
+        margin-right: 15px;
+        text-align: end;
+    }
+}
+
+.btn__activo {
+    border: 4px solid variables.$azulBotones;
+}

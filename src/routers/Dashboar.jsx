@@ -1,14 +1,17 @@
 import React from 'react'
+import { Navigate } from "react-router-dom";
 import { useState } from 'react';
 import Cookies from 'universal-cookie';
-import '../styles/Dashboard.style.css'
+import '../styles/Dashboard.style.scss'
 import Footer from '../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft, faCircleChevronRight, faCircleXmark, faMagnifyingGlass, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import Albums from '../components/Albums';
 import FormFoto from '../components/FormFoto';
-import { images, useViewImages } from '../hooks/gets';
+import { useViewImages } from '../hooks/gets';
 import { ImSpinner9 } from 'react-icons/im';
+import Images from '../components/Images';
+import { useRef } from 'react';
 
 
 const Dashboar = () => {
@@ -17,27 +20,36 @@ const Dashboar = () => {
 
   let usuario = cookie.get('id');
   let token = cookie.get('token');
+  let ruta, id
 
-  if (!usuario || !token) {
-    window.location = '/'
+  if (!token) {
+    <Navigate to="/logout" replace={true} />
   }
 
   const [flecha, setFlecha] = useState(false)
   const [nuevo, setNuevo] = useState(false)
+  const [albumActivo, setAlbumActivo] = useState(0)
 
+  if (albumActivo === 0) {
+    ruta = 'verImagesId'
+    id = usuario
+  } else {
+    ruta = 'verAllImagenesAlbum'
+    id = albumActivo
+  }
+  const listRef = useRef()
 
-  const { data, isPending } = useViewImages(usuario);
-
-  const imagenes = data
-
+  const { data: imagenes, isPending, isError } = useViewImages({ id, ruta })
+  if (isError) {
+    window.location = '/logout';
+  }
   return (
     <>
       <div className='contenedor'>
         {
-          flecha && <Albums images={imagenes} />
-
+          flecha && <Albums setAlbumActivo={setAlbumActivo} images={imagenes} />
         }
-        <div className={flecha ? 'contenedor__imagenes' : 'ampliar'}>
+        <div className={`contenedor__imagenes ${flecha ? '' : 'activo'}`}>
           <div className={'contenedor_titulo'}>
 
             {flecha ? <FontAwesomeIcon onClick={() => setFlecha(false)} className={'icono'} icon={faCircleChevronLeft} />
@@ -48,16 +60,16 @@ const Dashboar = () => {
             <FontAwesomeIcon onClick={() => setNuevo(true)} className={'icono_add'} icon={faSquarePlus} />
           </div>
           {
-            isPending ? <span><ImSpinner9 className={'spinner'} /></span> : 
-            <div className={flecha ? 'imagenes' : 'ampliado'}>
-            {
-              imagenes.data.map((image) =>
-                <div key={image.id_img}>
-                  <img className={'image'} src={image.url_img} />
-                </div>
-              )
-            }
-          </div>}
+            isPending ? <span><ImSpinner9 className={'spinner'} /></span> :
+              imagenes?.data.message ? <div className={'message'}>{imagenes.data.message}</div>
+                :
+                <ul ref={listRef} className={`imagenes ${flecha ? '' : 'activo'}`}>
+                  {
+                    imagenes?.data.map((image, idx) =>
+                      <Images key={image.id_img} index={idx} imagenes={imagenes} image={image} />
+                    )
+                  }
+                </ul>}
         </div>
       </div>
       {

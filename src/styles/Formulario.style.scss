@@ -1,0 +1,57 @@
+@use 'variables';
+
+.formulario__update {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: variables.$negroFondo;
+
+    & .formulario__caja {
+        position: relative;
+        top: 8%;
+        background: variables.$negroFondo;
+        width: 40%;
+        margin: auto;
+        padding: 10px 5px;
+        border: 3px solid variables.$blancoFondo;
+        border-radius: 15px;
+
+        & .comparacion__imagenes {
+            justify-content: center;
+            width: 81%;
+            margin: 5px auto;
+            padding: 10px;
+            max-height: 120px;
+            border: 3px solid variables.$azulTitulo;
+            border-radius: 10px;
+            display: flex;
+            line-height: 70px;
+
+            & .comparar {
+                max-width: 50%;
+                min-width: 7%;
+                height: 70px;
+
+                & .image__compara {
+                    width: 100%;
+                    height: 70px;
+                    border: 2px solid variables.$azulTitulo;
+                }
+            }
+
+            & .ico {
+                color: variables.$blancoFondo;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 20px;
+                margin-left: 10px;
+                margin-right: 7px;
+            }
+        }
+
+
+    }
+}

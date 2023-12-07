@@ -1,12 +1,15 @@
+@use 'variables';
+
 .mensajeCierre {
-    color: rgba(246, 248, 249, 0.812);
+    color: variables.$colorSpinner !important;
     text-align: center;
-    font-size: xx-large;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .spinner{
     animation: spinners 2s linear infinite;
+    color: variables.$colorSpinner !important;
 }
 
 @keyframes spinners {

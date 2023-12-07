@@ -1,0 +1,51 @@
+@use 'variables';
+
+.btn__image {
+    flex-direction: row;
+    margin: 3px;
+    height: 110px;
+    border-radius: 9px;
+    border: 3px solid rgb(255, 255, 255);
+
+    & .contenido__boton {
+        display: flex;
+
+        & .image {
+            align-items: center;
+            max-width: 350px;
+            height: 104px;
+            margin: auto;
+            border-radius: 9px;
+        }
+
+        & .boton__mod {
+            display: block;
+            background-color: variables.$azulTitulo;
+            width: 20px;
+            height: 104px;
+
+            & .boton--accion {
+                width: 100%;
+                height: 52px;
+                color: variables.$azulBotones;
+                z-index: 6;
+                background-color: transparent;
+                border: none;
+                margin: auto;
+                & :hover{
+                    color: variables.$blancoFondo;
+                }
+            }
+        }
+    }
+
+    // & .contenido__boton:hover {
+    //     background-color: aqua;
+    //     z-index: 10000;
+    // }
+}
+
+.okey {
+    border: 3px solid rgb(43, 25, 87) !important;
+    background-color: rgb(43, 25, 87);
+}

@@ -1,4 +1,4 @@
-import '../styles/Dashboard.style.css'
+import '../styles/Dashboard.style.scss'
 const Footer = () => {
     return (
         <>

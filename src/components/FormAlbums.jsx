@@ -1,13 +1,10 @@
-import { faAnglesRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
-import '../styles/Dashboard.style.css'
+import '../styles/Dashboard.style.scss'
 import axios from 'axios'
 import env from 'react-dotenv'
 import Cookies from 'universal-cookie'
-import ContenedorAlbums from './ContenedorAlbums'
-import { NewAlbum, useNewAlbum } from '../hooks/post'
+import { useNewAlbum } from '../hooks/post'
 import { useQueryClient } from '@tanstack/react-query'
 
 
@@ -63,9 +60,9 @@ const FormAlbums = (props) => {
                                 }
                             })
                         } />
-                        <button type='submit' className={'icono_album'} name='btnEnviar'><FontAwesomeIcon icon={faAnglesRight} /></button>
+                        {errors.album && <span className={'alert'}>{errors.album.message}</span>}
+                        <button type='submit' className={'submit'} name='btnEnviar'>Enviar</button>
                     </div>
-                    {errors.album && <span className={'alert'}>{errors.album.message}</span>}
                 </form>
             </div>
         </div>
