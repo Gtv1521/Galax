@@ -3,11 +3,11 @@ import { useForm } from 'react-hook-form'
 import Input from './Input'
 import Cookies from 'universal-cookie'
 import { useNewFoto } from '../hooks/post.js'
-import { useViewAlbum } from '../hooks/gets.js'
 import { ImSpinner9 } from 'react-icons/im'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { useQueryClient } from '@tanstack/react-query'
+import Select from './Select.jsx'
 
 const FormFoto = () => {
     const cookie = new Cookies()
@@ -17,8 +17,6 @@ const FormFoto = () => {
 
     let idUsuario = cookie.get('id')
 
-    let { data: dataAlbum } = useViewAlbum(idUsuario)
-
     const mutacion = useNewFoto()
     const queryClient = useQueryClient()
 
@@ -27,10 +25,6 @@ const FormFoto = () => {
         queryClient.invalidateQueries({ queryKey: ['albums'] })
     }
 
-
-    function PrimeraLetra(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
 
     const onSubmit = handleSubmit((datos) => {
         mutacion.mutate({ id: idUsuario, album: datos.album, titulo: datos.titulo, image: datos.image[0] })
@@ -44,23 +38,16 @@ const FormFoto = () => {
                 <form onSubmit={onSubmit}>
                     <div className={'formulario__container'}>
                         <div className={'caja_album'}>
-                            <label for="album" className={'select_label'}>Album:</label>
-                            <select className={'select_album'} {
-                                ...register("album", {
+                            <Select nombre={'Album'} dato={{
+                                ...register('album', {
                                     required: {
                                         value: true,
-                                        message: "El album es requerido"
-                                    },
-                                    minLength: {
-                                        value: 2,
-                                        message: 'El album es minimo de 2 letras'
+                                        message: 'Se requiere un album'
                                     }
-                                })}>
-                                {dataAlbum?.data.map(album =>
-                                    <option value={album.id_album}>{PrimeraLetra(album.nombre_album)}</option>
-                                )}
+                                })
+                            }} />
+                            {errors.album && <span className={'alert'}>{errors.album.message}</span>}
 
-                            </select>
                         </div>
 
                         <Input nombre={"Titulo"} type={"text"} dato={{

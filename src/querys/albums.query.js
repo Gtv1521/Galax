@@ -13,6 +13,14 @@ export async function verAlbum(id) {
         }
     })
 }
+// muestra un album albums 
+export async function verAlbumID(id) {
+    return await axios.get(`${env.URL}/album/${id}`, {
+        headers: {
+            Authorization: token
+        }
+    })
+}
 
 // muestra las todas las imagenes de un usuario
 export async function verImagenesAlbum(album_id) {

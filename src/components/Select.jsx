@@ -20,6 +20,7 @@ const Select = ({ dato, nombre }) => {
                 <div className={'inputduo'}>
 
                     <select className={'input'} {...dato} >
+                        <option disabled value="">Select...</option>
                         {
                             albums?.data.map(album =>
                                 <option key={album.id_album} value={album.id_album}>{PrimeraLetra(album.nombre_album)}</option>

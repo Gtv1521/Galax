@@ -5,19 +5,20 @@ import Newlbum from './Newlbum'
 import Alert from './Alert'
 import '../styles/index.scss'
 
-const Config = ({ album, setEstadoBtn, estadoBtn, index, setAlbumActivo }) => {
+const Config = ({ album, setTitulo, setEstadoBtn, estadoBtn, index, setAlbumActivo }) => {
 
     const [estado, setEstado] = useState(false)
     const [borrar, setBorrar] = useState(false)
     const [configurar, setConfigurar] = useState(true)
-
+    
     return (
         <button
             onClick={() => {
                 setEstadoBtn(index)
+                setTitulo(album.nombre_album)
                 setAlbumActivo(album.id_album)
             }}
-            className={`boton_album ${estadoBtn === index ? 'btn__activo' : ''}`}
+            className={`boton_album ${estadoBtn === index  ? 'btn__activo' : ''}`}
         >
             <div className={'config'} >
                 {

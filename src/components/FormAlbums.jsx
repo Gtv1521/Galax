@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import '../styles/Dashboard.style.scss'
+import '../styles/index.scss'
 import axios from 'axios'
 import env from 'react-dotenv'
 import Cookies from 'universal-cookie'
@@ -25,7 +25,7 @@ const FormAlbums = (props) => {
 
     const queryClient = useQueryClient()
     const mutacion = useNewAlbum()
-    if (mutacion.isPending){
+    if (mutacion.isSuccess){
             queryClient.invalidateQueries({ queryKey: ['albums'] })
     }
 

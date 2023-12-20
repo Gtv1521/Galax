@@ -9,7 +9,7 @@ import { useViewAlbum } from '../hooks/gets.js'
 import { ImSpinner9 } from 'react-icons/im'
 
 
-const Albums = ({ setAlbumActivo }) => {
+const Albums = ({setTitulo, setAlbumActivo }) => {
 
     const cookie = new Cookies()
 
@@ -18,6 +18,8 @@ const Albums = ({ setAlbumActivo }) => {
     let idUsuario = cookie.get('id')
 
     const result = useViewAlbum(idUsuario)
+
+    console.log(idUsuario, result.data)
     return (
         <>
             <div className={'albums'}>
@@ -32,7 +34,7 @@ const Albums = ({ setAlbumActivo }) => {
                         {result.isError ?
                             'Algo fallo'
                             :
-                            <ContenedorAlbums setAlbumActivo={setAlbumActivo} estado={album} albums={result.data} />
+                            <ContenedorAlbums setTitulo={setTitulo} setAlbumActivo={setAlbumActivo} estado={album} albums={result.data} />
                         }
                     </div>
                 }

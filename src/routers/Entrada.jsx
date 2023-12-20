@@ -6,33 +6,40 @@ import Cookie from 'universal-cookie';
 
 const Entrada = () => {
   const cookies = new Cookie();
-  const [user, setUser] = useState(true);
+
+  const id = cookies.get('id')
+  const [user, setUser] = useState(false);
+
+  function Ok(Estado) {
+    setUser(Estado)
+  }
 
   useEffect(() => {
-    if (cookies?.get('id')){
-      setUser(true);
-    }else{
-      setUser(false);
+    if (!id) {
+      Ok(false)
+    } else {
+      Ok(true)
     }
-  }, []);
+  },[])
 
 
-return (
-  <>
-    <div className={'Navbar'}>
-      <div className={'Nav'}>
-        <div className={'Logo'}><img src="" alt="" />Logo </div>
-        <ul className={'Items'}>
-          {user ? (
-            <NavUser />
-          ) : (
-            <NavInicio />
-          )}
-        </ul>
+
+  return (
+    <>
+      <div className={'Navbar'}>
+        <div className={'Nav'}>
+          <div className={'Logo'}><img src="" alt="" />Logo </div>
+          <ul className={'Items'}>
+            {user ? (
+              <NavUser />
+            ) : (
+              <NavInicio />
+            )}
+          </ul>
+        </div>
       </div>
-    </div>
-  </>
-)
+    </>
+  )
 }
 
 

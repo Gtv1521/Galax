@@ -1,5 +1,9 @@
+.caja__img {
+    width: 98%;
+}
+
 .imgAlbum {
-    width: 60px;
+    width: 75px;
     height: 40px;
     margin: 1px 3px;
 }

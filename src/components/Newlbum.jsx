@@ -1,13 +1,14 @@
 import React from 'react'
 import { useImagesAlbum } from '../hooks/gets';
 import '../styles/Album.style.css'
-import '../styles/Dashboard.style.scss'
+import '../styles/index.scss'
 import { useForm } from 'react-hook-form';
 import { useQueryClient } from '@tanstack/react-query'
 import { useUpdateAlbum } from '../hooks/post';
+import { PrimeraLetra } from '../querys/complementos';
 
 const Newlbum = (dato) => {
-    const { register, handleSubmit, formState: { errors }} = useForm(
+    const { register, handleSubmit, formState: { errors } } = useForm(
         {
             defaultValues: {
                 titulo: dato.nombre,
@@ -19,9 +20,6 @@ const Newlbum = (dato) => {
     let id = dato.idAlbum
     const { data: images } = useImagesAlbum(id)
 
-    function PrimeraLetra(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
     const queryClient = useQueryClient()
 
     if (mutacion.isPending) {
@@ -29,23 +27,27 @@ const Newlbum = (dato) => {
     }
 
     const onSubmit = handleSubmit((datos) => {
-            mutacion.mutate({
-                id: id, titulo: datos.titulo
-            })
-            mutacion.isSuccess && dato.setEstado(false)
-            dato.setEstado(false)
+        mutacion.mutate({
+            id: id, titulo: datos.titulo
+        })
+        mutacion.isSuccess && dato.setEstado(false)
+        dato.setEstado(false)
     })
     return (
         <>
             {
                 images?.message ? 'fallo dato incorrecto' :
-                images?.data.status === 200 ?
-                    <div>
-                        <img className={'imgAlbum'} src='https://i.pinimg.com/564x/b6/ea/ea/b6eaeae82251c15f71297828a5b45192.jpg' alt='' />
-                    </div> :
-                    images?.data.map(img =>
-                        <img src={img.url_img}  key={img.id_img} alt='' className={'imgAlbum'} ></img>
-                    )
+                    images?.data.status === 200 ?
+                        <div>
+                            <img className={'imgAlbum'} src='https://i.pinimg.com/564x/b6/ea/ea/b6eaeae82251c15f71297828a5b45192.jpg' alt='' />
+                        </div> :
+                        <div className="caja__img">
+                            {
+                                images?.data.map((img, idx) =>
+                                    <img src={img.url_img} key={idx} alt='' className={'imgAlbum'} />
+                                )
+                            }
+                        </div>
             }
             {
                 dato.estado ?

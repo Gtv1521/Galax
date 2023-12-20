@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigate } from "react-router-dom";
 import { useState } from 'react';
 import Cookies from 'universal-cookie';
-import '../styles/Dashboard.style.scss'
+import '../styles/index.scss'
 import Footer from '../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft, faCircleChevronRight, faCircleXmark, faMagnifyingGlass, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,7 @@ import { useViewImages } from '../hooks/gets';
 import { ImSpinner9 } from 'react-icons/im';
 import Images from '../components/Images';
 import { useRef } from 'react';
+import Titulo from '../components/Titulo';
 
 
 const Dashboar = () => {
@@ -29,7 +30,9 @@ const Dashboar = () => {
   const [flecha, setFlecha] = useState(false)
   const [nuevo, setNuevo] = useState(false)
   const [albumActivo, setAlbumActivo] = useState(0)
+  const [titulo, setTitulo] = useState('')
 
+  console.log(albumActivo)
   if (albumActivo === 0) {
     ruta = 'verImagesId'
     id = usuario
@@ -47,7 +50,7 @@ const Dashboar = () => {
     <>
       <div className='contenedor'>
         {
-          flecha && <Albums setAlbumActivo={setAlbumActivo} images={imagenes} />
+          flecha && <Albums setTitulo={setTitulo} setAlbumActivo={setAlbumActivo} images={imagenes} />
         }
         <div className={`contenedor__imagenes ${flecha ? '' : 'activo'}`}>
           <div className={'contenedor_titulo'}>
@@ -55,7 +58,8 @@ const Dashboar = () => {
             {flecha ? <FontAwesomeIcon onClick={() => setFlecha(false)} className={'icono'} icon={faCircleChevronLeft} />
               : <FontAwesomeIcon className={'icono'} onClick={() => setFlecha(true)} icon={faCircleChevronRight} />}
 
-            <h1 className={'titulo'}>Todo</h1>
+            {albumActivo === 0 ? <h1 className={'titulo'}>Todo</h1> : <Titulo titulo={titulo} />}
+
             <FontAwesomeIcon className={'icono_add'} icon={faMagnifyingGlass} />
             <FontAwesomeIcon onClick={() => setNuevo(true)} className={'icono_add'} icon={faSquarePlus} />
           </div>
@@ -69,19 +73,22 @@ const Dashboar = () => {
                       <Images key={image.id_img} index={idx} imagenes={imagenes} image={image} />
                     )
                   }
-                </ul>}
+                </ul>
+          }
         </div>
       </div>
-      {
-        nuevo &&
-        <div className={'mostrar_add_imagen'}>
-          <div className={'contenedor_titulo'}>
-            <h1 className={'titulo'}>Agregar</h1>
-            <FontAwesomeIcon className={'cerrar'} onClick={() => setNuevo(false)} icon={faCircleXmark} />
+      <div>
+        {
+          nuevo &&
+          <div className={'mostrar_add_imagen'}>
+            <div className={'contenedor_titulo'}>
+              <h1 className={'titulo'}>Agregar</h1>
+              <FontAwesomeIcon className={'cerrar'} onClick={() => setNuevo(false)} icon={faCircleXmark} />
+            </div>
+            <FormFoto />
           </div>
-          <FormFoto />
-        </div>
-      }
+        }
+      </div>
       <Footer />
     </>
   )

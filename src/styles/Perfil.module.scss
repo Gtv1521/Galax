@@ -1,0 +1,72 @@
+@use 'variables';
+
+.perfil {
+    width: 98%;
+    height: 80vh;
+    margin: 2% auto;
+    padding-top: 10px;
+    border-radius: 30px;
+    background-color: variables.$blancoDifuminado;
+
+    & .btn_cierre {
+        width: 99%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+
+        & .title {
+            width: 90%;
+            text-align: center;
+            line-height: 8vh;
+            align-items: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: variables.$blancoFondo;
+        }
+
+        & .icono {
+            font-size: 40px;
+            font-weight: bold;
+            border-radius: 1em;
+            padding: 10px 19px;
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                color: variables.$azulBotones;
+                background-color: variables.$negroDifuminado;
+            }
+        }
+
+        & .cerrar {
+            position: relative;
+            top: 2%;
+        }
+    }
+
+    & .caja__perfil {
+        width: 97%;
+        height: 69vh;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+
+        & .datos__perfil {
+            width: 68%;
+            height: 69vh;
+        }
+
+        & .foto__perfil {
+            width: 30%;
+            height: 69vh;
+            text-align: center;
+
+            & img {
+                width: 85%;
+                height: 68vh;
+                border-radius: 7px;
+                border: 3px solid variables.$blancoFondo;
+            }
+        }
+    }
+}
