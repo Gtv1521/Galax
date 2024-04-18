@@ -1,3 +1,3 @@
 window.env = {
-  "URL": "http://localhost:5000"
+  "URL": "https://bvdnxbgz-5000.use2.devtunnels.ms"
 };
