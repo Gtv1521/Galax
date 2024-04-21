@@ -13,6 +13,7 @@ import { ImSpinner9 } from 'react-icons/im';
 import Images from '../components/Images';
 import { useRef } from 'react';
 import Titulo from '../components/Titulo';
+import Entrada from './Entrada';
 
 
 const Dashboar = () => {
@@ -48,6 +49,9 @@ const Dashboar = () => {
   }
   return (
     <>
+
+      <Entrada />
+
       <div className='contenedor'>
         {
           flecha && <Albums setTitulo={setTitulo} setAlbumActivo={setAlbumActivo} images={imagenes} />

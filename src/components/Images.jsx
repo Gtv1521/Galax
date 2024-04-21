@@ -30,7 +30,7 @@ const Images = ({ image, imagenes, index }) => {
 
   return (
     <>
-      <button className={`btn__image ${activo ? 'okey' : ''}`}
+      <div className={`btn__image ${activo ? 'okey' : ''}`}
         onDoubleClick={() => setActivo(true)}
         onBlur={() => setActivo(false)}
         onMouseDown={clicDown}
@@ -72,7 +72,7 @@ const Images = ({ image, imagenes, index }) => {
             activo && <Mostrar setActivo={setActivo} index={index} imagenes={imagenes.data} url={image.url_img} />
           }
         </div>
-      </button>
+      </div>
     </>
   )
 }

@@ -1,28 +1,33 @@
 @use 'variables';
 
 .btn__image {
-    flex-direction: row;
-    margin: 3px;
+    // flex-direction: row;
+    margin: 4px;
     height: 110px;
     border-radius: 9px;
-    border: 3px solid rgb(255, 255, 255);
+    margin-bottom: 15px;
 
     & .contenido__boton {
         display: flex;
+        border: 3px solid rgb(255, 255, 255);
+        border-radius: 9px;
+
+        &:hover {
+            border: 3px solid rgb(100, 98, 233);
+        }
 
         & .image {
-            align-items: center;
             max-width: 350px;
-            height: 104px;
-            margin: auto;
-            border-radius: 9px;
+            height: 110px;
+            border-radius: 6px;
+            margin-bottom: -4px;
         }
 
         & .boton__mod {
             display: block;
             background-color: variables.$azulTitulo;
             width: 20px;
-            height: 104px;
+            height: 110px;
 
             & .boton--accion {
                 width: 100%;
@@ -32,7 +37,8 @@
                 background-color: transparent;
                 border: none;
                 margin: auto;
-                & :hover{
+
+                & :hover {
                     color: variables.$blancoFondo;
                 }
             }
